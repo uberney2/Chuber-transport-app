@@ -7,7 +7,7 @@ exports.showService = (req, res, next) => {
 };
 
 exports.addService = (req, res, next) => {
-  const idConductor = req.body.idConductor;
+  
   const idCliente = req.body.idCliente;
   const idZona = req.body.idZona;
   const idDescuento = req.body.idDescuento;
@@ -16,7 +16,6 @@ exports.addService = (req, res, next) => {
 
   servicesModel
     .create({
-      idConductor: idConductor,
       idCliente: idCliente,
       idZona: idZona,
       idDescuento: idDescuento,
@@ -32,10 +31,16 @@ exports.addService = (req, res, next) => {
 
 exports.confirmService = (req, res, next) => {
   const idService = req.body.id;
+  const idConductor = req.body.idConductor;
   servicesModel
-    .upsert({
-      id: idService,
+    .update({
+      idConductor: idConductor,
       idEstado: 2,
+    },
+    {
+      where: {
+        id: idService,
+      }
     })
     .then((resp) => {
       res.status(200).json({ message: "Update succesfully", posts: resp });
