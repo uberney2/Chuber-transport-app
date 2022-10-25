@@ -23,7 +23,6 @@ exports.confirmService = (req, res, next) => {
     idConductor: req.body.idConductor,
   };
   
-
   axios
     .put("http://localhost:8080/services/confirmservice", initialServiceInformation)
       .then((resp) => {
