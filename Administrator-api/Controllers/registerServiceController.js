@@ -38,9 +38,7 @@ exports.confirmService = (req, res, next) => {
       idEstado: 2,
     })
     .then((resp) => {
-      res
-        .status(200)
-        .json({ message: "Update succesfully", posts: resp });
+      res.status(200).json({ message: "Update succesfully", posts: resp });
     });
 };
 
@@ -52,9 +50,7 @@ exports.cancelService = (req, res, next) => {
       idEstado: 3,
     })
     .then((resp) => {
-      res
-        .status(200)
-        .json({ message: "Update succesfully", posts: resp });
+      res.status(200).json({ message: "Update succesfully", posts: resp });
     });
 };
 
@@ -66,8 +62,6 @@ exports.finishService = (req, res, next) => {
       idEstado: 4,
     })
     .then((resp) => {
-      res
-        .status(200)
-        .json({ message: "Update succesfully", posts: resp });
+      res.status(200).json({ message: "Update succesfully", posts: resp });
     });
 };

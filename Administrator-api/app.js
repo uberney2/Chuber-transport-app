@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./util/database')
 const registerServiceRoutes = require('./routes/register-service')
+const fareRoutes = require('./routes/Fare')
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use((req, res, next) => {
 
 
 app.use('/services', registerServiceRoutes);
+app.use('/fares', fareRoutes);
 
 sequelize.sync().then(result => {
     // console.log(result);
